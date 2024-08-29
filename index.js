@@ -7,16 +7,16 @@ dotenv.config();
 const app = express();
 
 // Database configuration
-const dbConfig = {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    server: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    options: {
-        encrypt: true,
-        trustServerCertificate: false // Adjust if necessary
-    }
-};
+// const dbConfig = {
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASS,
+//     server: process.env.DB_HOST,
+//     database: process.env.DB_NAME,
+//     options: {
+//         encrypt: true,
+//         trustServerCertificate: false 
+//     }
+// };
 
 const connectionString = process.env.DB_CONNECTION_STRING;
 
