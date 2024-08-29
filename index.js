@@ -18,9 +18,9 @@ const dbConfig = {
     }
 };
 
-// const connectionString = process.env.DB_CONNECTION_STRING;
+const connectionString = process.env.DB_CONNECTION_STRING;
 
-sql.connect(dbConfig)
+sql.connect(connectionString)
     .then(() => {
         console.log('Connected to the database successfully!');
     })
@@ -30,13 +30,13 @@ sql.connect(dbConfig)
 
 
 // Connect to the database
-// sql.connect(dbConfig)
-//     .then(() => {
-//         console.log('Connected to the database successfully!');
-//     })
-//     .catch(err => {
-//         console.error('Database connection failed: ', err);
-//     });
+sql.connect(dbConfig)
+    .then(() => {
+        console.log('Connected to the database successfully!');
+    })
+    .catch(err => {
+        console.error('Database connection failed: ', err);
+    });
 
 app.get('/', (req, res) => {
     res.send('Hello, World! Your app is running.');
