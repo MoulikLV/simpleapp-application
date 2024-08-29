@@ -31,6 +31,16 @@ app.get('/', (req, res) => {
     res.send('Hello, World! Your app is running.');
 });
 
+app.get('/test-db', async (req, res) => {
+    try {
+        const result = await sql.query`SELECT 1 AS Test`;
+        res.send('Database connection is successful: ' + JSON.stringify(result.recordset));
+    } catch (err) {
+        res.status(500).send('Database connection failed: ' + err.message);
+    }
+});
+
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
