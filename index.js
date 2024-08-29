@@ -55,7 +55,7 @@ app.get('/debug', (req, res) => {
 app.get('/test-db', async (req, res) => {
     try {
         const result = await sql.query`SELECT 1 AS Test`;
-        res.send('Database connection is successful: ' + JSON.stringify(result.recordset));
+        res.send('Database connection is successful: ' + JSON.stringify(result.output));
     } catch (err) {
         res.status(500).send('Database connection failed: ' + err.message);
     }
