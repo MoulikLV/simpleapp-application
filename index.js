@@ -14,24 +14,21 @@ const dbConfig = {
     database: process.env.DB_NAME,
     options: {
         encrypt: true,
-        trustServerCertificate: false 
+        trustServerCertificate: false // Adjust if necessary
     }
 };
 
-
-sql.connect(dbConfig, (err) => {
-    if (err) {
-        console.log('Database connection failed: ', err);
-    } else {
+// Connect to the database
+sql.connect(dbConfig)
+    .then(() => {
         console.log('Connected to the database successfully!');
-        alert('Succesfully connected to SQL Database')
-    }
-});
-
+    })
+    .catch(err => {
+        console.error('Database connection failed: ', err);
+    });
 
 app.get('/', (req, res) => {
     res.send('Hello, World! Your app is running.');
-    alert('Your application working correctly')
 });
 
 const port = process.env.PORT || 3000;
